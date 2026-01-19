@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Bank</title>
+</head>
+
+<body>
+
+    <h2>Simple Banking System</h2>
+
+    <p>Balance: ₹ <span id="balance">1000</span></p>
+
+    <input type="number" id="amount" placeholder="Enter amount">
+    <br><br>
+
+    <button onclick="deposit()">Deposit</button>
+    <button onclick="withdraw()">Withdraw</button>
+
+    <p id="msg"></p>
+
+    <script>
+        // starting balance
+        let balance = 1000;
+
+        function deposit() {
+            let amt = document.getElementById("amount").value;
+
+            if (amt == "" || amt <= 0) {
+                document.getElementById("msg").innerText = "Enter valid amount";
+            } else {
+                balance = balance + Number(amt);
+                document.getElementById("balance").innerText = balance;
+                document.getElementById("msg").innerText = "Money deposited";
+            }
+
+            document.getElementById("amount").value = "";
+        }
+
+        function withdraw() {
+            let amt = document.getElementById("amount").value;
+
+            if (amt == "" || amt <= 0) {
+                document.getElementById("msg").innerText = "Enter valid amount";
+            } 
+            else if (amt > balance) {
+                document.getElementById("msg").innerText = "Not enough balance";
+            } 
+            else {
+                balance = balance - Number(amt);
+                document.getElementById("balance").innerText = balance;
+                document.getElementById("msg").innerText = "Money withdrawn";
+            }
+
+            document.getElementById("amount").value = "";
+        }
+    </script>
+
+</body>
+</html>
