@@ -1,0 +1,17 @@
+<html>
+    <head>
+        <title> exp2.1 </title>
+    </head>
+    <body>
+        <h1> Live Character Counter</h1>
+        <textarea id ="ta" rows="10" cols="50" maxlength ="250" oninput= "live()"></textarea>
+        <p>Total Charcter : <span id="c"></span>/250</p>
+        </body>
+        <script>
+           let ta = document.getElementById('ta');
+           ta.addEventListener("input", ()=>{
+            let len= ta.value.length;
+            document.getElementById('c').innerText = len;
+           })
+        </script>
+        </html>
